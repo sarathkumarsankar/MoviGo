@@ -3,7 +3,8 @@ import UIKit
 final class MoviesViewController: UITableViewController {
     
     private let viewModel: MoviesViewModel
-
+    weak var mainCoordinator: MainCoordinator?
+    
     init(viewModel: MoviesViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -91,8 +92,6 @@ extension MoviesViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = viewModel.state.movies[indexPath.row]
-        let viewModel = MoviesDetailsViewModel(movie: movie, apiManager: APIManager())
-        let viewController = MovieDetailsViewController(viewModel: viewModel)
-        self.navigationController?.pushViewController(viewController, animated: true)
+        mainCoordinator?.showMovieDetail(movie: movie)
     }
 }
