@@ -4,7 +4,6 @@ final class MovieDetailsViewController: UIViewController {
 
     private let viewModel: MoviesDetailsViewModel
     private var currentViewController: UIViewController!
-    let dispatchGroup = DispatchGroup()
 
     init(viewModel: MoviesDetailsViewModel) {
         self.viewModel = viewModel
@@ -21,7 +20,7 @@ final class MovieDetailsViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem.backButton(target: self, action: #selector(didTapBack(_:)))
         updateFromViewModel()
         bindViewModel()
-        viewModel.fetchData(dispatchGroup: dispatchGroup)
+        viewModel.fetchData()
     }
 
     private func bindViewModel() {

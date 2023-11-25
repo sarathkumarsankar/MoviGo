@@ -38,13 +38,13 @@ final class MoviesDetailsViewModel {
         }
     }
 
-    func fetchData(dispatchGroup: DispatchGroup) {
+    func fetchData() {
         let group = DispatchGroup()
-        dispatchGroup.enter()
+        group.enter()
         apiManager.execute(MovieDetails.details(for: initialMovie)) { [weak self] result in
             guard let self = self else { return }
             defer {
-                dispatchGroup.leave()
+                group.leave()
             }
             switch result {
             case .success(let movieDetails):
@@ -54,11 +54,11 @@ final class MoviesDetailsViewModel {
             }
         }
         
-        dispatchGroup.enter()
+        group.enter()
         apiManager.execute(Movie.similar(for: initialMovie)) { [weak self] result in
             guard let self = self else { return }
             defer {
-                dispatchGroup.leave()
+                group.leave()
             }
             switch result {
             case .success(let movies):
