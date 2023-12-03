@@ -1,4 +1,7 @@
-# Project Title
+# MoviGo
+
+<img width="230" alt="Screenshot 2023-12-03 at 17 04 05" src="https://github.com/sarathkumarsankar/MoviGo/assets/12977299/7876e771-3842-4b90-9f12-12e17dc0198d">
+<img width="230" alt="Screenshot 2023-12-03 at 17 04 19" src="https://github.com/sarathkumarsankar/MoviGo/assets/12977299/7b177fe5-2f1d-4235-a2fe-e23c89c25397">
 
 This is a movie app built using the Model-View-ViewModel (MVVM) architecture pattern. It allows users to explore and search for movies.
 
